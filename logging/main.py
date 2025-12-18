@@ -124,3 +124,94 @@ if __name__ == "__main__":
     logger.info("=" * 50)
     logger.info("Logging Examples Completed")
     logger.info("=" * 50)
+
+
+def sensitive_data_examples():
+    """Demonstrate sensitive data filtering in logs"""
+    
+    logger.info("=" * 50)
+    logger.info("Sensitive Data Filtering Examples")
+    logger.info("=" * 50)
+    
+    # Credit card number
+    credit_card = "1234-5678-9012-3456"
+    logger.info(f"Processing payment with card: {credit_card}")
+    
+    # SSN
+    ssn = "123-45-6789"
+    logger.info(f"User SSN: {ssn}")
+    
+    # Email address
+    email = "user@example.com"
+    logger.info(f"Sending notification to: {email}")
+    
+    # Phone number
+    phone = "(555) 123-4567"
+    logger.info(f"Contact phone: {phone}")
+    
+    # IP address
+    ip_address = "192.168.1.100"
+    logger.info(f"Request from IP: {ip_address}")
+    
+    # Password
+    password = "MyS3cr3tP@ssw0rd"
+    logger.info(f"User password: {password}")
+    
+    # API Key
+    api_key = "api_key=sk_live_abc123def456ghi789jkl012mno345pqr"
+    logger.info(f"Using API key: {api_key}")
+    
+    # Token
+    token = "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U"
+    logger.info(f"Authorization: {token}")
+    
+    # AWS Access Key
+    aws_key = "AKIAIOSFODNN7EXAMPLE"
+    logger.info(f"AWS Access Key: {aws_key}")
+    
+    # Database connection string
+    db_conn = "postgresql://dbuser:dbpass123@localhost:5432/mydb"
+    logger.info(f"Connecting to database: {db_conn}")
+    
+    # Secret
+    secret = "secret=my_super_secret_value_12345"
+    logger.info(f"Application secret: {secret}")
+    
+    # Private key (shortened for example)
+    private_key = """-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA1234567890abcdefghijklmnopqrstuvwxyz
+-----END RSA PRIVATE KEY-----"""
+    logger.info(f"Using private key: {private_key}")
+    
+    # Mixed example - multiple sensitive data in one log
+    logger.info(f"User john@example.com (SSN: 987-65-4321) paid with card 4532-1234-5678-9010")
+    
+    logger.info("All sensitive data should be redacted above!")
+    logger.info("=" * 50)
+
+
+if __name__ == "__main__":
+    logger.info("=" * 50)
+    logger.info("Starting Logging Examples")
+    logger.info("=" * 50)
+    
+    basic_logging_examples()
+    print()
+    
+    logging_with_variables()
+    print()
+    
+    logging_exceptions()
+    print()
+    
+    logging_in_functions()
+    print()
+    
+    conditional_logging()
+    print()
+    
+    sensitive_data_examples()
+    
+    logger.info("=" * 50)
+    logger.info("All Examples Completed")
+    logger.info("=" * 50)
