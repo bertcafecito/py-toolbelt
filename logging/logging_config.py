@@ -1,5 +1,9 @@
 import logging.config
+import os
 from logging_filters import SensitiveDataFilter
+
+# Ensure logs directory exists
+os.makedirs("logs", exist_ok=True)
 
 LOGGING = {
     "version": 1,
@@ -22,9 +26,17 @@ LOGGING = {
             "stream": "ext://sys.stdout",
             "formatter": "json",
             "filters": ["sensitive_data_filter"],
+        },
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": "logs/app.log",
+            "maxBytes": 10485760,  # 10MB
+            "backupCount": 5,
+            "formatter": "json",
+            "filters": ["sensitive_data_filter"],
         }
     },
-    "loggers": {"": {"handlers": ["stdout"], "level": "DEBUG"}},
+    "loggers": {"": {"handlers": ["stdout", "file"], "level": "DEBUG"}},
 }
 
 
