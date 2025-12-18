@@ -44,19 +44,7 @@ class SensitiveDataFilter(logging.Filter):
 
     def filter(self, record):
         """Filter log record by masking sensitive data."""
-        record.msg = self.mask_sensitive_data(str(record.msg))
-
-        # Also mask arguments if they exist
-        if record.args:
-            if isinstance(record.args, dict):
-                record.args = {
-                    k: self.mask_sensitive_data(str(v)) for k, v in record.args.items()
-                }
-            elif isinstance(record.args, tuple):
-                record.args = tuple(
-                    self.mask_sensitive_data(str(arg)) for arg in record.args
-                )
-
+        record.msg = self.mask_sensitive_data(record.msg)
         return True
 
     def mask_sensitive_data(self, message):
