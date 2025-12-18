@@ -34,11 +34,10 @@ LOGGING = {
             "backupCount": 5,
             "formatter": "json",
             "filters": ["sensitive_data_filter"],
-        }
+        },
     },
     "loggers": {"": {"handlers": ["stdout", "file"], "level": "DEBUG"}},
 }
 
 
 logging.config.dictConfig(LOGGING)
-

@@ -18,7 +18,30 @@ A collection of Python utilities and tools for common development tasks.
 
 ## Installation
 
-Install the required dependencies:
+### Virtual Environment (Recommended)
+
+We strongly recommend using a virtual environment to manage dependencies. Virtual environments:
+- **Isolate project dependencies** from your system Python and other projects
+- **Prevent version conflicts** between different projects requiring different package versions
+- **Make your project reproducible** by keeping dependencies self-contained
+- **Simplify dependency management** without affecting your global Python installation
+
+Create and activate a virtual environment:
+
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate on Windows
+venv\Scripts\activate
+
+# Activate on macOS/Linux
+source venv/bin/activate
+```
+
+### Install Dependencies
+
+Once your virtual environment is activated, install the required dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -49,6 +72,35 @@ from logging.config import dictConfig
 from logging_config import LOGGING
 
 dictConfig(LOGGING)
+```
+
+## Code Formatting with Black
+
+This project uses [Black](https://github.com/psf/black) for code formatting. Black is an opinionated code formatter that:
+- **Enforces consistent code style** across the entire project
+- **Eliminates debates** about formatting preferences in code reviews
+- **Saves time** by automatically formatting code instead of manual styling
+- **Improves readability** with a uniform, predictable format
+- **Reduces git diffs** by maintaining consistent formatting across commits
+
+### Format Your Code
+
+Format a single file:
+
+```bash
+black path/to/file.py
+```
+
+Format the entire project:
+
+```bash
+black .
+```
+
+Check what would be reformatted without making changes:
+
+```bash
+black --check .
 ```
 
 ## License

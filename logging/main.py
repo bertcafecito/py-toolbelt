@@ -19,7 +19,10 @@ def logging_with_variables():
     """Demonstrate logging with variables"""
     user, action, status = "alice", "login", "success"
     logger.info(f"User {user} performed {action} with status: {status}")
-    logger.info("User action completed", extra={"user": user, "action": action, "status": status})
+    logger.info(
+        "User action completed",
+        extra={"user": user, "action": action, "status": status},
+    )
 
 
 def logging_exceptions():
@@ -42,13 +45,15 @@ def sensitive_data_examples():
         "api_key": "sk_live_abc123def456ghi789jkl012mno345pqr",
         "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U",
         "aws_key": "AKIAIOSFODNN7EXAMPLE",
-        "db_conn": "postgresql://dbuser:dbpass123@localhost:5432/mydb"
+        "db_conn": "postgresql://dbuser:dbpass123@localhost:5432/mydb",
     }
-    
+
     for key, value in sensitive_data.items():
         logger.info(f"{key}: {value}")
-    
-    logger.info("User john@example.com (SSN: 987-65-4321) paid with card 4532-1234-5678-9010")
+
+    logger.info(
+        "User john@example.com (SSN: 987-65-4321) paid with card 4532-1234-5678-9010"
+    )
 
 
 if __name__ == "__main__":
